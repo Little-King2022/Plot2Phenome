@@ -16,7 +16,7 @@ Chuanjing Jin · Yan Li · Xiaohu Zhang<br>
 Nanjing Agricultural University
 
 Included in the **17th International Conference on Precision Agriculture (ICPA), 2026** proceedings.<br>
-[Official proceedings entry](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942) · ISPA member login may be required.
+[Official proceedings entry](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942&title=Plot2Phenome%3A+A+UAV-Based+Deep+Learning+Framework+for+Automated+Micro-Plot+Segmentation+and+Plot+Level+Phenotyping&search=authors) · ISPA member login may be required.
 
 </div>
 
@@ -230,7 +230,7 @@ Plot2Phenome/
 
 ## Citation
 
-If you use this work, please cite the conference paper in the **Proceedings of the 17th International Conference on Precision Agriculture (2026)**. The [official proceedings entry](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942) may require an ISPA member login. Use the following BibTeX entry to cite the paper.
+If you use this work, please cite the conference paper in the **Proceedings of the 17th International Conference on Precision Agriculture (2026)**. The [official proceedings entry](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942&title=Plot2Phenome%3A+A+UAV-Based+Deep+Learning+Framework+for+Automated+Micro-Plot+Segmentation+and+Plot+Level+Phenotyping&search=authors) may require an ISPA member login. Use the following BibTeX entry to cite the paper.
 
 ```bibtex
 @inproceedings{jin2026plot2phenome,
@@ -238,7 +238,7 @@ If you use this work, please cite the conference paper in the **Proceedings of t
   author    = {Jin, Chuanjing and Li, Yan and Zhang, Xiaohu},
   booktitle = {Proceedings of the 17th International Conference on Precision Agriculture},
   year      = {2026},
-  url       = {https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942}
+  url       = {https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942&title=Plot2Phenome%3A+A+UAV-Based+Deep+Learning+Framework+for+Automated+Micro-Plot+Segmentation+and+Plot+Level+Phenotyping&search=authors}
 }
 ```
 

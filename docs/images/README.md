@@ -1,6 +1,6 @@
 # Figure provenance
 
-Source: the authors' supplied `Plot2Phenome_full.docx`, titled **Plot2Phenome: A UAV-Based Deep Learning Framework for Automated Micro-Plot Segmentation and Plot Level Phenotyping**, by Chuanjing Jin, Yan Li, and Xiaohu Zhang, for the 17th ICPA (2026). The paper is included in the conference proceedings: [official entry](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942) (ISPA member login may be required).
+Source: the authors' supplied `Plot2Phenome_full.docx`, titled **Plot2Phenome: A UAV-Based Deep Learning Framework for Automated Micro-Plot Segmentation and Plot Level Phenotyping**, by Chuanjing Jin, Yan Li, and Xiaohu Zhang, for the 17th ICPA (2026). The paper is included in the conference proceedings: [official entry](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942&title=Plot2Phenome%3A+A+UAV-Based+Deep+Learning+Framework+for+Automated+Micro-Plot+Segmentation+and+Plot+Level+Phenotyping&search=authors) (ISPA member login may be required).
 
 The figures were extracted from the manuscript, composited on a white background where necessary, and resized or JPEG-compressed for web display. No experimental values or labels were redrawn. This directory does not contain generated model predictions from a new run.
 

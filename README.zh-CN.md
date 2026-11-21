@@ -16,7 +16,7 @@ Chuanjing Jin · Yan Li · Xiaohu Zhang<br>
 南京农业大学
 
 已收录于 **第 17 届国际精准农业大会（ICPA，2026）论文集**。<br>
-[官方论文集条目](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942) · 访问可能需要 ISPA 会员登录。
+[官方论文集条目](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942&title=Plot2Phenome%3A+A+UAV-Based+Deep+Learning+Framework+for+Automated+Micro-Plot+Segmentation+and+Plot+Level+Phenotyping&search=authors) · 访问可能需要 ISPA 会员登录。
 
 </div>
 
@@ -230,7 +230,7 @@ Plot2Phenome/
 
 ## 引用
 
-使用本研究时，请引用收录于 **第 17 届国际精准农业大会（2026）论文集**的会议论文。[官方论文集条目](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942)可能需要 ISPA 会员登录。可使用以下 BibTeX 条目引用本论文。
+使用本研究时，请引用收录于 **第 17 届国际精准农业大会（2026）论文集**的会议论文。[官方论文集条目](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942&title=Plot2Phenome%3A+A+UAV-Based+Deep+Learning+Framework+for+Automated+Micro-Plot+Segmentation+and+Plot+Level+Phenotyping&search=authors)可能需要 ISPA 会员登录。可使用以下 BibTeX 条目引用本论文。
 
 ```bibtex
 @inproceedings{jin2026plot2phenome,
@@ -238,7 +238,7 @@ Plot2Phenome/
   author    = {Jin, Chuanjing and Li, Yan and Zhang, Xiaohu},
   booktitle = {Proceedings of the 17th International Conference on Precision Agriculture},
   year      = {2026},
-  url       = {https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942}
+  url       = {https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942&title=Plot2Phenome%3A+A+UAV-Based+Deep+Learning+Framework+for+Automated+Micro-Plot+Segmentation+and+Plot+Level+Phenotyping&search=authors}
 }
 ```
 
