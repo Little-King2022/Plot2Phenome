@@ -15,7 +15,8 @@
 Chuanjing Jin · Yan Li · Xiaohu Zhang<br>
 Nanjing Agricultural University
 
-Conference manuscript: **17th International Conference on Precision Agriculture (ICPA), 2026**
+Included in the **17th International Conference on Precision Agriculture (ICPA), 2026** proceedings.<br>
+[Official proceedings entry](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942) · ISPA member login may be required.
 
 </div>
 
@@ -180,9 +181,9 @@ Coverage is a fraction on `[0, 1]`. These results compare traits extracted from 
 |---|---|
 | Dual-stream backbone, fusion/attention modules, instance head and losses | Included in this repository |
 | RGB preview dataset and polygon labels | [Available on Hugging Face](https://huggingface.co/datasets/little-king/Plot2Phenome) |
-| Full paired RGB–DSM dataset | Planned for release upon paper acceptance |
-| Runnable training/evaluation pipeline, configs and preprocessing | Planned for release upon paper acceptance |
-| Pretrained weights | Planned for release upon paper acceptance |
+| Full paired RGB–DSM dataset | Not included in the current release |
+| Runnable training/evaluation pipeline, configs and preprocessing | Not included in the current release |
+| Pretrained weights | Not included in the current release |
 | Georeferenced plot coding and trait-extraction workflow | Described in the manuscript; not included in this core-code release |
 
 ### Inspect the architecture
@@ -229,14 +230,15 @@ Plot2Phenome/
 
 ## Citation
 
-If you use this work, please cite the Plot2Phenome manuscript. The entry below uses the supplied manuscript's authors and title; a DOI and final proceedings details are not yet provided in this repository.
+If you use this work, please cite the conference paper in the **Proceedings of the 17th International Conference on Precision Agriculture (2026)**. The [official proceedings entry](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942) may require an ISPA member login. Use the following BibTeX entry to cite the paper.
 
 ```bibtex
-@unpublished{jin2026plot2phenome,
-  title  = {Plot2Phenome: A UAV-Based Deep Learning Framework for Automated Micro-Plot Segmentation and Plot Level Phenotyping},
-  author = {Jin, Chuanjing and Li, Yan and Zhang, Xiaohu},
-  year   = {2026},
-  note   = {Manuscript prepared for the 17th International Conference on Precision Agriculture (ICPA)}
+@inproceedings{jin2026plot2phenome,
+  title     = {Plot2Phenome: A UAV-Based Deep Learning Framework for Automated Micro-Plot Segmentation and Plot Level Phenotyping},
+  author    = {Jin, Chuanjing and Li, Yan and Zhang, Xiaohu},
+  booktitle = {Proceedings of the 17th International Conference on Precision Agriculture},
+  year      = {2026},
+  url       = {https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942}
 }
 ```
 

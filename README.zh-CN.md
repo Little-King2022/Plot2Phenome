@@ -15,7 +15,8 @@
 Chuanjing Jin · Yan Li · Xiaohu Zhang<br>
 南京农业大学
 
-会议论文稿：**第 17 届国际精准农业大会（ICPA），2026**
+已收录于 **第 17 届国际精准农业大会（ICPA，2026）论文集**。<br>
+[官方论文集条目](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942) · 访问可能需要 ISPA 会员登录。
 
 </div>
 
@@ -180,9 +181,9 @@ plot2phenome_preview/
 |---|---|
 | 双流骨干、融合／注意力模块、实例分割头与损失函数 | 已包含于本仓库 |
 | RGB 预览数据与多边形标注 | [已在 Hugging Face 发布](https://huggingface.co/datasets/little-king/Plot2Phenome) |
-| 完整配对 RGB–DSM 数据集 | 计划在论文接收后发布 |
-| 可运行的训练／评估流程、配置与预处理 | 计划在论文接收后发布 |
-| 预训练权重 | 计划在论文接收后发布 |
+| 完整配对 RGB–DSM 数据集 | 当前版本尚未包含 |
+| 可运行的训练／评估流程、配置与预处理 | 当前版本尚未包含 |
+| 预训练权重 | 当前版本尚未包含 |
 | 地理小区编码与表型提取流程 | 论文已描述，当前核心代码版本未包含 |
 
 ### 查看架构代码
@@ -229,14 +230,15 @@ Plot2Phenome/
 
 ## 引用
 
-使用本研究时，请引用 Plot2Phenome 论文稿。以下条目依据所提供原稿的作者与标题填写；仓库尚未提供 DOI 和最终论文集信息。
+使用本研究时，请引用收录于 **第 17 届国际精准农业大会（2026）论文集**的会议论文。[官方论文集条目](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942)可能需要 ISPA 会员登录。可使用以下 BibTeX 条目引用本论文。
 
 ```bibtex
-@unpublished{jin2026plot2phenome,
-  title  = {Plot2Phenome: A UAV-Based Deep Learning Framework for Automated Micro-Plot Segmentation and Plot Level Phenotyping},
-  author = {Jin, Chuanjing and Li, Yan and Zhang, Xiaohu},
-  year   = {2026},
-  note   = {Manuscript prepared for the 17th International Conference on Precision Agriculture (ICPA)}
+@inproceedings{jin2026plot2phenome,
+  title     = {Plot2Phenome: A UAV-Based Deep Learning Framework for Automated Micro-Plot Segmentation and Plot Level Phenotyping},
+  author    = {Jin, Chuanjing and Li, Yan and Zhang, Xiaohu},
+  booktitle = {Proceedings of the 17th International Conference on Precision Agriculture},
+  year      = {2026},
+  url       = {https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942}
 }
 ```
 
