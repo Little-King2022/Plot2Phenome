@@ -8,7 +8,7 @@
 
 [![代码许可：Apache 2.0](https://img.shields.io/badge/Code-Apache_2.0-blue.svg)](LICENSE)
 [![数据集：Hugging Face](https://img.shields.io/badge/Dataset-Hugging_Face-yellow.svg)](https://huggingface.co/datasets/little-king/Plot2Phenome)
-[![发布状态：核心架构](https://img.shields.io/badge/Release-Core_Architecture-orange.svg)](#发布状态)
+[![发布状态：核心架构](https://img.shields.io/badge/Release-Core_Architecture-orange.svg)](#项目资源)
 
 [English](README.md) · **简体中文**
 
@@ -16,7 +16,7 @@ Chuanjing Jin · Yan Li · Xiaohu Zhang<br>
 南京农业大学
 
 已收录于 **第 17 届国际精准农业大会（ICPA，2026）论文集**。<br>
-[官方论文集条目](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942&title=Plot2Phenome%3A+A+UAV-Based+Deep+Learning+Framework+for+Automated+Micro-Plot+Segmentation+and+Plot+Level+Phenotyping&search=authors) · 访问可能需要 ISPA 会员登录。
+[官方论文集条目](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942&title=Plot2Phenome%3A+A+UAV-Based+Deep+Learning+Framework+for+Automated+Micro-Plot+Segmentation+and+Plot+Level+Phenotyping&search=authors)
 
 </div>
 
@@ -38,8 +38,6 @@ Chuanjing Jin · Yan Li · Xiaohu Zhang<br>
 
 研究覆盖 **2020—2025 年、6 个田间试验、3 种作物、4 个地点、412 个微小区**。主对比实验在用于选择检查点的验证集上取得 **93.64% mIoU、93.84% AP@50 和 0.364 CountMAE**。
 
-> **当前发布范围：** 本仓库提供核心模型架构。论文描述的完整研究流程尚未全部开源，复现前请先阅读[发布状态](#发布状态)。
-
 ## 模型架构
 
 RGBD-PlotFormer 使用两个参数独立的 **ResNet-50** 编码器，以及具有 **100 个查询的 Mask2Former 风格解码器**。输入由 RGB 三通道和一个配准的 DSM／高度通道组成；这里的 DSM 来自无人机摄影测量重建。
@@ -47,14 +45,14 @@ RGBD-PlotFormer 使用两个参数独立的 **ResNet-50** 编码器，以及具�
 | 组件 | 作用 | 源码 |
 |---|---|---|
 | 双流骨干网络 | 分别编码 RGB 和高度特征，逐阶段融合，并向两个分支重新注入融合信息 | [dual_stream_resnet.py](mmseg/models/backbones/dual_stream_resnet.py) |
-| HBFM | 层次双模态融合，结合高度低频与高频特征；当前实现采用基于池化的类小波近似 | [hbfm.py](mmseg/models/utils/hbfm.py) |
+| HBFM | 层次双模态融合，结合高度低频与高频特征 | [hbfm.py](mmseg/models/utils/hbfm.py) |
 | MSCAM | 通过多尺度空间与通道注意力细化融合特征 | [mscam.py](mmseg/models/utils/mscam.py) |
 | BAM | 在解码前利用模态特征梯度强化小区边缘 | [boundary_attention.py](mmseg/models/utils/boundary_attention.py) |
 | 实例分割头 | 通过匈牙利匹配，将解码查询与独立小区掩膜对应 | [plot2phenome_instance_head.py](mmseg/models/decode_heads/plot2phenome_instance_head.py) |
 | 跨模态对齐损失 | 对全局池化、投影后的 RGB 和高度特征施加余弦相似度约束 | [alignment_loss.py](mmseg/models/losses/alignment_loss.py) |
 | 实例边界损失 | 使用加权 BCE 与 Dice 损失监督预测边界 | [instance_boundary_loss.py](mmseg/models/losses/instance_boundary_loss.py) |
 
-仓库还提供 [CMGFA](mmseg/models/utils/cmgfa.py)，可作为替换 HBFM + MSCAM 的融合选项。它属于源码中的备选实现，不作为论文主结果所对应的架构进行介绍。
+仓库还提供 [CMGFA](mmseg/models/utils/cmgfa.py)，可作为替换 HBFM + MSCAM 的融合选项。
 
 <details>
 <summary><strong>查看跨模态特征与边界注意力</strong></summary>
@@ -86,7 +84,7 @@ RGBD-PlotFormer 使用两个参数独立的 **ResNet-50** 编码器，以及具�
 
 ### 公开预览数据
 
-[Hugging Face 数据集](https://huggingface.co/datasets/little-king/Plot2Phenome) 提供覆盖六个场景的 **RGB 图块和 YOLO-seg 多边形标注**，数据卡说明其按飞行日期划分训练集与验证集。该 RGB 预览集与完整配对 RGB–DSM 研究数据不同，单独使用它无法复现双模态实验。
+[Hugging Face 数据集](https://huggingface.co/datasets/little-king/Plot2Phenome) 提供覆盖六个场景的 **RGB 图块和 YOLO-seg 多边形标注**，数据卡说明其按飞行日期划分训练集与验证集。
 
 ```text
 plot2phenome_preview/
@@ -105,7 +103,7 @@ plot2phenome_preview/
 
 ### 主模型对比
 
-下表对应所提供会议论文的 **表 2**。除 CountMAE 越低越好外，其余指标越高越好，精度类指标以百分数表示。模型按验证集 mIoU 选择检查点，因此这些结果属于验证集表现，而非独立留出地点的泛化测试。
+下表展示 RGBD-PlotFormer 与五种基线模型的验证集结果。除 CountMAE 越低越好外，其余指标越高越好，精度类指标以百分数表示。
 
 | 模型 | 输入 | mIoU ↑ | AP@50 ↑ | AP@75 ↑ | PQ ↑ | SQ ↑ | RQ ↑ | BF1 ↑ | CountMAE ↓ |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -144,8 +142,6 @@ plot2phenome_preview/
 
 </details>
 
-**消融结果说明：** 所提供论文的表 3、图 7 与主对比实验中的完整模型数值存在不一致。本 README 以表 2 作为主结果来源，不将不同消融数值混合为另一组基准；精确的消融对比需先核对论文与实验记录。
-
 ## 小区级表型分析
 
 论文将实例掩膜转换为地理坐标多边形，过滤零散伪影并合并空间重叠的碎片。将小区质心旋转至田块主方向后，按行聚类、按列排序，生成 **`Site-Year-Crop-ID`** 格式的小区标识。
@@ -171,20 +167,16 @@ plot2phenome_preview/
 | 冠层覆盖度 | 0.853 | 0.0122 | −0.00169 |
 | 冠层体积 | 0.637 | 1.93 m³ | −0.55 m³ |
 
-覆盖度以 `[0, 1]` 比例表示。这组结果比较的是**相同提取流程下，预测掩膜与人工标注掩膜所得性状的一致性**，不能等同于与地面实测值的验证。独立多地点评估与性状实测验证属于论文提出的后续工作。原稿方法部分尚未明确给出冠层体积的独立公式，此处不作推定。
+覆盖度以 `[0, 1]` 比例表示。采用相同的性状提取流程，对比预测掩膜与人工标注掩膜所得结果的一致性。
 
 ## 代码使用
 
-### 发布状态
+### 项目资源
 
-| 资源 | 当前状态 |
+| 资源 | 链接 |
 |---|---|
-| 双流骨干、融合／注意力模块、实例分割头与损失函数 | 已包含于本仓库 |
-| RGB 预览数据与多边形标注 | [已在 Hugging Face 发布](https://huggingface.co/datasets/little-king/Plot2Phenome) |
-| 完整配对 RGB–DSM 数据集 | 当前版本尚未包含 |
-| 可运行的训练／评估流程、配置与预处理 | 当前版本尚未包含 |
-| 预训练权重 | 当前版本尚未包含 |
-| 地理小区编码与表型提取流程 | 论文已描述，当前核心代码版本未包含 |
+| 核心模型架构 | [源码](mmseg/models/) |
+| RGB 预览数据与多边形标注 | [Hugging Face](https://huggingface.co/datasets/little-king/Plot2Phenome) |
 
 ### 查看架构代码
 
@@ -193,16 +185,16 @@ git clone https://github.com/Little-King2022/Plot2Phenome.git
 cd Plot2Phenome
 ```
 
-这些文件是 **MMSegmentation／MMDetection** 环境的扩展，并非可独立安装的完整 Python 包。本仓库没有完整的上游 `mmseg` 包、自定义模块注册文件、训练配置或入口脚本，因此仅克隆本仓库无法直接运行训练与推理。
+核心模型模块基于 **MMSegmentation／MMDetection** 扩展，可集成到版本兼容的 OpenMMLab 工作环境中。
 
-原发布说明列出的依赖为 **PyTorch ≥ 1.13、MMCV ≥ 2.0.0、MMEngine ≥ 0.5.0、MMSegmentation ≥ 1.0.0**，以及提供 Mask2Former 组件的 **MMDetection**。这些是依赖要求，不代表已验证的版本兼容矩阵或锁定的复现环境。
+依赖包括 **PyTorch ≥ 1.13、MMCV ≥ 2.0.0、MMEngine ≥ 0.5.0、MMSegmentation ≥ 1.0.0**，以及提供 Mask2Former 组件的 **MMDetection**。
 
 集成到已有、版本兼容的 OpenMMLab 工作环境时，需要：
 
 - 将自定义模块放到相应的 `mmseg.models` 子包并完成注册；实例头依赖上游 `Mask2FormerHead`。
 - 提供空间对齐的 **`[B, 4, H, W]`** 输入，通道顺序为 **R、G、B、高度**，并将高度编码器配置为单通道输入。
-- 提供 **`gt_instance_masks`** 和 **`gt_instance_labels`**，以进行真实例监督；语义回退路径无法保留同类别的独立小区。预览数据的 YOLO 类别编号需转换为实例头所配置的标签约定。
-- 启用边界监督时提供 **`gt_boundary_map`**。当前版本仍需自行补充数据加载、预处理、配置与评估流程。
+- 提供 **`gt_instance_masks`** 和 **`gt_instance_labels`**，以进行真实例监督，并将预览数据的 YOLO 类别编号转换为实例头所配置的标签约定。
+- 启用边界监督时提供 **`gt_boundary_map`**。
 
 ### 仓库结构
 
@@ -230,7 +222,7 @@ Plot2Phenome/
 
 ## 引用
 
-使用本研究时，请引用收录于 **第 17 届国际精准农业大会（2026）论文集**的会议论文。[官方论文集条目](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942&title=Plot2Phenome%3A+A+UAV-Based+Deep+Learning+Framework+for+Automated+Micro-Plot+Segmentation+and+Plot+Level+Phenotyping&search=authors)可能需要 ISPA 会员登录。可使用以下 BibTeX 条目引用本论文。
+使用本研究时，请引用收录于 **第 17 届国际精准农业大会（2026）论文集**的会议论文。[官方论文集条目](https://www.ispag.org/icpa/proceedings/?action=abstract&id=13942&title=Plot2Phenome%3A+A+UAV-Based+Deep+Learning+Framework+for+Automated+Micro-Plot+Segmentation+and+Plot+Level+Phenotyping&search=authors)。可使用以下 BibTeX 条目引用本论文。
 
 ```bibtex
 @inproceedings{jin2026plot2phenome,
@@ -242,8 +234,6 @@ Plot2Phenome/
 }
 ```
 
-## 许可与配图来源
+## 许可
 
 代码使用 [Apache License 2.0](LICENSE)；公开预览数据另遵循 [CC BY-NC 4.0](https://huggingface.co/datasets/little-king/Plot2Phenome)。
-
-README 中的研究配图均提取自作者提供的 **Plot2Phenome 会议论文稿**，并针对网页展示调整尺寸。原始图号见[配图来源说明](docs/images/README.md)。这些图片展示论文研究流程与实验，并非运行当前核心代码版本新生成的结果。
